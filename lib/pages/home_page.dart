@@ -7,6 +7,7 @@ import 'package:food_delivery_app_with_firebase/components/my_silver_app_bar.dar
 import 'package:food_delivery_app_with_firebase/components/my_tab_bar.dart';
 import 'package:food_delivery_app_with_firebase/models/food.dart';
 import 'package:food_delivery_app_with_firebase/models/restaurant.dart';
+import 'package:food_delivery_app_with_firebase/pages/food_page.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -57,7 +58,12 @@ class _HomePageState extends State<HomePage>
           //return food tile UI
           return MyFoodTile(
             food: food,
-            onTap: () {},
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => FoodPage(food: food),
+              ),
+            ),
           );
         },
       );
